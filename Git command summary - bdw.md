@@ -1,0 +1,376 @@
+__Help__
+
+Show help for a specific command:
+
+```$ git <command> --help```
+
+Show git version:
+
+```$ git --version```
+
+__Configuration__
+
+Show the configuration options:
+
+```$ git config --list```
+
+Configure the user name and email address:
+
+```$ git config --global user.name "..."```
+
+```$ git config --global user.email "..."```
+
+Make VS Code the default editor:
+
+```$ git config --global core.editor "code --wait"```
+
+__Repositories__
+
+Create a local repository (repo):
+
+```$ git init```
+
+Check status:
+
+```$ git status```
+
+```$ git status --short```
+
+```$ git status -s```
+
+File status:
+
+M = modified
+
+A = added
+
+D = deleted
+
+R = renamed
+
+C = copied
+
+U = updated but unmerged
+
+Rename a file:
+
+```$ git rm <fname>```
+
+Move a file or directory:
+
+```$ git mv <source> <destination>```
+
+__Stash__
+
+Stash allows you to record the current state of a dirty working tree and index before
+going back to a clean working tree. It saves your local modifications and reverts 
+the working tree to match the HEAD commit:
+ 
+```$ git stash```
+
+List the stash entries:
+
+```$ git stash list```
+
+Show the changes recorded in the stash entry as a diff between the stashed contents 
+and the commit back when the stash entry was first created:
+
+```$ git stash show```
+
+Remove a single stash entry from the list of stash entries:
+
+```$ git stash drop [<stash>]```
+
+Remove a single stashed state from the stash list and apply it on top of the current 
+working tree state, _i.e._, do the inverse operation of ```$ git stash push``` (the working 
+directory must match the index):
+
+```$ git stash pop [<stash>]```
+
+
+__Commits__
+
+Add a file in the working tree to the index (staging area):
+
+```$ git add <fname.ext>```
+
+Allow the addition of ignored files in the working tree to the index:
+
+```$ git add --force <fname.ext>```
+
+```$ git add -f <fname.ext>```
+
+Add all tracked files in the working tree to the index:
+
+```$ git add -u```
+
+Add all files in the working tree to the index:
+
+```$ git add .```
+
+Restore a file from the index back to the working tree:
+
+```$ git restore --staged <fname>```
+
+Commit files in the index with a message:
+
+```$ git commit -m "Commit message."```
+
+Add all tracked files to the index, and commit with a message:
+
+```$ git commit -am "Commit message."```
+
+Interactively add specific changes to the named file to the index:
+
+```$ git add --patch <fname>```
+
+```$ git add -p <fname>```
+
+Amend the most recent commit:
+ 
+```$ git commit --amend```
+
+```$ git commit --amend -m "new msg"```
+
+```$ git commit --amend --reset-author```
+
+__Tags__
+
+Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
+
+```$ git tag <tag_name> [<commit>]```
+
+Delete a tag:
+
+```$ git tag -d <tag_name>```
+
+List all tags:
+
+```$ git tag -l```
+
+__Branches__
+
+Create a new branch:
+
+````$ git branch <branch>````
+
+Switch to a branch:
+
+```$ git checkout <branch>```
+
+Create a new branch, and switch to it:
+
+```$ git checkout -b <branch>```
+
+Merge changes from the named branch to the current branch:
+
+```$ git merge <branch>```
+
+Move/rename a branch:
+
+```$ git branch -m [<oldbranch>] <newbranch>```
+
+Delete a branch:
+
+```$ git branch -d <branch>```
+
+__Checkout__
+
+Checkout is used to update the state of the repo to a specific point in the 
+project's history. When passed with a branch name, it lets you switch between branches.
+This moves HEAD to a different branch and updates the working directory to match. 
+Since this has the potential to overwrite local changes, Git forces you to commit or 
+stash any changes in the working directory that will be lost during the checkout 
+operation. Unlike reset, checkout doesn’t move any branches around.
+
+```$ git checkout <branch>```
+
+You can also check out arbitrary commits by passing the commit reference instead 
+of a branch. This does the exact same thing as checking out a branch, _i.e._, it moves 
+the HEAD reference to the specified commit: 
+
+```$ git checkout <commit_id>```
+
+Check out the grandparent of the current commit:
+
+```$ git checkout HEAD~2```
+
+__Rebase__
+
+Rebase solves the same problem as merge. Both of these commands are designed 
+to integrate changes from one branch into another branch; they just do it in very 
+different ways. Rebase lets you move branches around, which helps you avoid 
+unnecessary merge commits. The resulting linear history is often much easier to 
+understand and explore because rebase re-writes the project history by creating 
+brand new commits for each commit in the original branch. The golden rule of 
+rebase is to never use it on public branches. If you’re not entirely comfortable 
+with rebase, you can always perform the rebase in a temporary branch. That 
+way, if you accidentally mess up your feature’s history, you can check out the 
+original branch and try again.
+
+To modify older or multiple commits, you can use rebase to combine a sequence of 
+commits into a new base commit. In standard mode, rebase allows you to literally 
+rewrite history — automatically applying commits in your current working branch 
+to the passed branch head. Since your new commits will be replacing the old, it's 
+important to not use rebase on commits that have been pushed public, or it will 
+appear that your project history disappeared.
+
+Rebase interactively, using the last ```n``` commits (lists the oldest commits at the top):
+
+```$ git rebase --interactive HEAD~n```
+
+```$ git rebase -i HEAD~n```
+
+Abort the rebase command currently in progress:
+
+```$ git rebase --abort```
+
+__Reset__
+
+Reset is a simple way to undo changes that haven’t been shared with anyone else.
+It has three primary forms of invocation, which correspond to the command line 
+arguments ```--soft```, ```--mixed```, and ```--hard```. 
+The three arguments each correspond to Git's three internal state management 
+mechanisms, The Commit Tree (HEAD), The Staging Index, and The Working Tree.
+
+Undo a commit, leaving the working tree as it was (_i.e._, the staged snapshot and 
+working tree are not altered in any way, only the the commit history):
+
+```$ git reset --soft <commit_id>```
+
+Reset the index but not the working tree (_i.e._, the changed files are preserved 
+but not marked for commit - this is the default action): 
+
+```$ git reset --mixed <commit_id>```
+
+Permanently undo changes (_i.e._, the staged snapshot and the working tree are 
+both updated, so any pending work that was hanging out in the index or working 
+tree will be lost):
+
+```$ git reset --hard <commit_id>```
+
+Remove a file from the index while keeping your changes:
+
+```$ git reset -- <fname_ext>```
+
+__Revert__
+
+Revert can be considered an "undo" type command, however, it is not a 
+traditional undo operation. Instead of removing the commit from the project history, 
+it figures out how to invert the changes introduced by the commit and appends a new 
+commit with the resulting inverse content. This prevents Git from losing history, 
+which is important for the integrity of your revision history and for reliable 
+collaboration.
+
+Revert should be used when you want to apply the inverse of a commit from your 
+project history. This can be useful, for example, if you’re tracking down a bug and 
+find that it was introduced by a single commit. Instead of manually going in, fixing it,
+and committing a new snapshot, you can use revert to automatically do all of this 
+for you.
+
+```$ git revert```
+
+__Reset vs. Revert__
+
+The preferred method of undoing shared history is revert. A revert is safer than a reset because it will not remove any commits 
+from a shared history. A revert will retain the commits you want to undo and create a new commit that inverts the undesired commit. 
+This method is safer for shared remote collaboration because a remote developer can then pull the branch and receive the new revert 
+commit that undoes the undesired commit.
+
+If revert is a "safe" way to undo changes, you can think of reset as the 
+dangerous method. There is a real risk of losing work with reset. Reset 
+will never delete a commit, however, commits can become "orphaned", which means there 
+is no direct path from a ref to access them. These orphaned commits can usually be 
+found and restored using ```$ git reflog```. Git will permanently delete any orphaned 
+commits after it runs the internal garbage collector.
+
+Checkout and reset are generally used for making local or private changes. They modify the history of a repository, which can cause 
+conflicts when pushing to remote shared repositories. Revert is considered a safer operation for public changes, as it creates 
+a new history which can be shared remotely and doesn't overwrite the history the remote team members may be dependent on.
+
+In summary, revert is designed to safely undo a public commit; reset is designed to 
+undo local changes to the index and working tree. Because of their 
+distinct goals, the two commands are implemented differently: resetting completely 
+removes a changeset, whereas reverting maintains the original changeset and uses a 
+new commit to apply the undo.
+
+![image info](reset-vs-revert-chart.png)
+
+
+https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
+
+
+__Remote Repositories__
+
+_Create a remote repo:_
+
+```$ git remote add origin <git@github.com:user_name/repo_name.git>```
+
+```$ git remote rm <name>```
+
+```$ git remote rename <old-name> <new-name>```
+
+Use ```-u``` option to set the upstream branch (upstream branches define the branch tracked on 
+the remote repository by your local remote branch):
+
+```$ git push -u origin main```
+
+```$ git remote -v```
+
+_origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (fetch)_
+
+_origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (push)_
+
+https://devconnected.com/how-to-set-upstream-branch-on-git/
+
+_Updating:_
+
+```$ git fetch``` 
+
+Fetch downloads a branch from another repository, along with all of its associated commits and files. 
+Pull is the automated version of fetch. It downloads a branch from a remote repository, then immediately 
+merges it into the current branch. 
+It is a best practice to use ```$ git fetch``` instead of ```$ git pull``` because it doesn't try to integrate 
+anything into your local repository. This provides a chance to inspect changes before merging them with your project.
+
+```$ git push <remote-name> <branch-name>```
+
+```$ git push```
+
+Push lets you move a local branch to another repository, which serves as a convenient way to publish contributions. 
+The ```-u``` option automatically sets that upstream for you, linking your repo to a central one. 
+That way, in the future, Git "knows" where you want to push to and where you want to pull from, 
+so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without arguments.
+
+__Submodules__
+
+A git submodule is a record within a host repo that points to a specific commit in another external repo. Submodules 
+are very static and only track specific commits. Submodules do not track refs or branches, and are not automatically 
+updated when the host repository is updated.
+
+_Create a submodule:_
+
+```$ git submodule add <git@github.com:user_name/repo_name.git>  <relative path to submodule's destination folder - must not already exist>```
+
+_Update submodule(s):_
+
+```$ git submodule foreach git pull origin main```
+
+__Clean__
+
+```$ git clean -n```
+
+The ```-n``` option will perform a dry run which will show you which files are going to be removed without actually removing them. 
+It is a best practice to always first perform a dry run. 
+
+Interactive:
+
+```$ git clean -i```
+
+__Alias__
+
+Create a file in the home directory named ```.bashrc```.
+
+Add lines of the form:
+
+```alias <alias_name> = "<command_name>"```
