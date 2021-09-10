@@ -8,7 +8,7 @@ Show git version:
 
 ```$ git --version```
 
-__Configuration__
+<h3> Configuration </h3>
 
 Show the configuration options:
 
@@ -24,7 +24,7 @@ Make VS Code the default editor:
 
 ```$ git config --global core.editor "code --wait"```
 
-__Repositories__
+<h3> Repositories </h3>
 
 Create a local repository (repo):
 
@@ -60,7 +60,7 @@ Move a file or directory:
 
 ```$ git mv <source> <destination>```
 
-__Stash__
+<h3> Stash </h3>
 
 Stash allows you to record the current state of a dirty working tree and index before
 going back to a clean working tree. It saves your local modifications and reverts 
@@ -88,7 +88,7 @@ directory must match the index):
 ```$ git stash pop [<stash>]```
 
 
-__Commits__
+<h3> Commits </h3>
 
 Add a file in the working tree to the index (staging area):
 
@@ -134,7 +134,7 @@ Amend the most recent commit:
 
 ```$ git commit --amend --reset-author```
 
-__Tags__
+<h3> Tags </h3>
 
 Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
 
@@ -148,7 +148,7 @@ List all tags:
 
 ```$ git tag -l```
 
-__Branches__
+<h3> Branches </h3>
 
 Create a new branch:
 
@@ -174,7 +174,7 @@ Delete a branch:
 
 ```$ git branch -d <branch>```
 
-__Checkout__
+<h3> Checkout </h3>
 
 Checkout is used to update the state of the repo to a specific point in the 
 project's history. When passed with a branch name, it lets you switch between branches.
@@ -195,7 +195,7 @@ Check out the grandparent of the current commit:
 
 ```$ git checkout HEAD~2```
 
-__Rebase__
+<h3> Rebase </h3>
 
 Rebase solves the same problem as merge. Both of these commands are designed 
 to integrate changes from one branch into another branch; they just do it in very 
@@ -225,7 +225,7 @@ Abort the rebase command currently in progress:
 
 ```$ git rebase --abort```
 
-__Reset__
+<h3> Reset </h3>
 
 Reset is a simple way to undo changes that haven’t been shared with anyone else.
 It has three primary forms of invocation, which correspond to the command line 
@@ -253,7 +253,7 @@ Remove a file from the index while keeping your changes:
 
 ```$ git reset -- <fname_ext>```
 
-__Revert__
+<h3> Revert </h3>
 
 Revert can be considered an "undo" type command, however, it is not a 
 traditional undo operation. Instead of removing the commit from the project history, 
@@ -270,7 +270,7 @@ for you.
 
 ```$ git revert```
 
-__Reset vs. Revert__
+<h3> Reset vs. Revert </h3>
 
 The preferred method of undoing shared history is revert. A revert is safer than a reset because it will not remove any commits 
 from a shared history. A revert will retain the commits you want to undo and create a new commit that inverts the undesired commit. 
@@ -299,7 +299,7 @@ new commit to apply the undo.
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
 
-__Remote Repositories__
+ <h3> Remote Repositories </h3>
 
 _Create a remote repo:_
 
@@ -341,7 +341,7 @@ The ```-u``` option automatically sets that upstream for you, linking your repo 
 That way, in the future, Git "knows" where you want to push to and where you want to pull from, 
 so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without arguments.
 
-__Submodules__
+<h3> Submodules </h3>
 
 A git submodule is a record within a host repo that points to a specific commit in another external repo. Submodules 
 are very static and only track specific commits. Submodules do not track refs or branches, and are not automatically 
@@ -355,7 +355,7 @@ _Update submodule(s):_
 
 ```$ git submodule foreach git pull origin main```
 
-__Clean__
+<h3> Clean </h3>
 
 ```$ git clean -n```
 
