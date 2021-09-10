@@ -58,7 +58,7 @@ _R_ = renamed
 
 _C_ = copied
 
-_U_ = updated but unmerged
+_U_ = updated, but unmerged
 
 Rename a file:
 
