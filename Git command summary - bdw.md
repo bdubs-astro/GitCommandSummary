@@ -294,7 +294,7 @@ distinct goals, the two commands are implemented differently: resetting complete
 removes a changeset, whereas reverting maintains the original changeset and uses a 
 new commit to apply the undo.
 
-<img_src = "https://user-images.githubusercontent.com/83251604/132891976-29986efb-4419-440f-acee-171acbf083ab.png" width = "600"/>
+![image](https://user-images.githubusercontent.com/83251604/132892307-4423b20d-10e5-4955-afe3-b3377ea8db79.png)
 
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
