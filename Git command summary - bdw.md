@@ -8,6 +8,14 @@ Show git version:
 
 ```$ git --version```
 
+<h3> Alias </h3>
+
+Create a file in the home directory named ```.bashrc```.
+
+Add lines of the form:
+
+```alias <alias_name> = "<command_name>"```
+
 <h3> Configuration </h3>
 
 Show the configuration options:
@@ -195,6 +203,18 @@ Check out the grandparent of the current commit:
 
 ```$ git checkout HEAD~2```
 
+
+<h3> Clean </h3>
+
+```$ git clean -n```
+
+The ```-n``` option will perform a dry run which will show you which files are going to be removed without actually removing them. 
+It is a best practice to always first perform a dry run. 
+
+Interactive:
+
+```$ git clean -i```
+
 <h3> Rebase </h3>
 
 Rebase solves the same problem as merge. Both of these commands are designed 
@@ -354,22 +374,3 @@ _Create a submodule:_
 _Update submodule(s):_
 
 ```$ git submodule foreach git pull origin main```
-
-<h3> Clean </h3>
-
-```$ git clean -n```
-
-The ```-n``` option will perform a dry run which will show you which files are going to be removed without actually removing them. 
-It is a best practice to always first perform a dry run. 
-
-Interactive:
-
-```$ git clean -i```
-
-<h3> Alias </h3>
-
-Create a file in the home directory named ```.bashrc```.
-
-Add lines of the form:
-
-```alias <alias_name> = "<command_name>"```
