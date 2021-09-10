@@ -1,4 +1,4 @@
-__Help__
+<h3> Help </h3>
 
 Show help for a specific command:
 
@@ -366,7 +366,7 @@ Interactive:
 
 ```$ git clean -i```
 
-__Alias__
+<h3> Alias </h3>
 
 Create a file in the home directory named ```.bashrc```.
 
