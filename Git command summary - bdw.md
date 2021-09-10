@@ -48,17 +48,17 @@ Check status:
 
 File status:
 
-M = modified
+_M_ = modified
 
-A = added
+_A_ = added
 
-D = deleted
+_D_ = deleted
 
-R = renamed
+_R_ = renamed
 
-C = copied
+_C_ = copied
 
-U = updated but unmerged
+_U_ = updated but unmerged
 
 Rename a file:
 
@@ -374,3 +374,9 @@ _Create a submodule:_
 _Update submodule(s):_
 
 ```$ git submodule foreach git pull origin main```
+
+<h3> Resources </h3>
+
+https://www.atlassian.com/git/tutorials
+
+https://git-scm.com/docs/gittutorial
