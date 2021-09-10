@@ -344,22 +344,22 @@ https://devconnected.com/how-to-set-upstream-branch-on-git/
 
 _Updating:_
 
-```$ git fetch``` 
-
 Fetch downloads a branch from another repository, along with all of its associated commits and files. 
 Pull is the automated version of fetch. It downloads a branch from a remote repository, then immediately 
 merges it into the current branch. 
 It is a best practice to use ```$ git fetch``` instead of ```$ git pull``` because it doesn't try to integrate 
 anything into your local repository. This provides a chance to inspect changes before merging them with your project.
 
-```$ git push <remote-name> <branch-name>```
-
-```$ git push```
+```$ git fetch``` 
 
 Push lets you move a local branch to another repository, which serves as a convenient way to publish contributions. 
 The ```-u``` option automatically sets that upstream for you, linking your repo to a central one. 
 That way, in the future, Git "knows" where you want to push to and where you want to pull from, 
 so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without arguments.
+
+```$ git push <remote-name> <branch-name>```
+
+```$ git push```
 
 <h3> Submodules </h3>
 
