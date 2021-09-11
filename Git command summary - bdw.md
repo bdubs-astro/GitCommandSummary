@@ -201,6 +201,14 @@ List all tags:
 
 ```$ git tag -l```
 
+Push a tag to the remote repo:
+
+```$ git push origin <tag_name>```
+
+Delete a tag from the remote repo:
+
+```$ git push origin --delete <tag_name>```
+
 <h3> Branches </h3>
 
 Create a new branch:
