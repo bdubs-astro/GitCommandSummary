@@ -60,10 +60,6 @@ _C_ = copied
 
 _U_ = updated, but unmerged
 
-Rename a file:
-
-```$ git rm <fname>```
-
 Move a file or directory:
 
 ```$ git mv <source> <destination>```
@@ -95,12 +91,13 @@ directory must match the index):
 
 ```$ git stash pop [<stash>]```
 
+<h3> Staging Files </h3>
 
-<h3> Commits </h3>
+Add file(s) in the working tree to the index (staging area):
 
-Add a file in the working tree to the index (staging area):
+```$ git add <fname.ext> [<fname2.ext> ...]```
 
-```$ git add <fname.ext>```
+```$ git add *.<ext>```
 
 Allow the addition of ignored files in the working tree to the index:
 
@@ -116,9 +113,27 @@ Add all files in the working tree to the index:
 
 ```$ git add .```
 
+Interactively add specific changes to the named file to the index:
+
+```$ git add --patch <fname>```
+
+```$ git add -p <fname>```
+
 Restore a file from the index back to the working tree:
 
 ```$ git restore --staged <fname>```
+
+Remove a file from both the index and the working tree:
+
+```$ git rm <fname>```
+
+Perform a dry run:
+
+```$ git rm --dry-run <fname>```
+
+```$ git rm -n <fname>```
+
+<h3> Committing Files </h3>
 
 Commit files in the index with a message:
 
@@ -127,12 +142,6 @@ Commit files in the index with a message:
 Add all tracked files to the index, and commit with a message:
 
 ```$ git commit -am "Commit message."```
-
-Interactively add specific changes to the named file to the index:
-
-```$ git add --patch <fname>```
-
-```$ git add -p <fname>```
 
 Amend the most recent commit:
  
