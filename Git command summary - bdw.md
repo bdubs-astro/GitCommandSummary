@@ -95,15 +95,15 @@ directory must match the index):
 
 Add file(s) in the working tree to the index (staging area):
 
-```$ git add <fname.ext> [<fname2.ext> ...]```
+```$ git add <file_name.ext> [<file_name2.ext> ...]```
 
 ```$ git add *.<ext>```
 
 Allow the addition of ignored files in the working tree to the index:
 
-```$ git add --force <fname.ext>```
+```$ git add --force <file_name.ext>```
 
-```$ git add -f <fname.ext>```
+```$ git add -f <file_name.ext>```
 
 Add all tracked files in the working tree to the index:
 
@@ -115,23 +115,19 @@ Add all files in the working tree to the index:
 
 Interactively add specific changes to the named file to the index:
 
-```$ git add --patch <fname>```
+```$ git add --patch <file_name>```
 
-```$ git add -p <fname>```
-
-Restore a file from the index back to the working tree:
-
-```$ git restore --staged <fname>```
+```$ git add -p <file_name>```
 
 Remove a file from both the index and the working tree:
 
-```$ git rm <fname>```
+```$ git rm <file_name>```
 
 Perform a dry run:
 
-```$ git rm --dry-run <fname>```
+```$ git rm --dry-run <file_name>```
 
-```$ git rm -n <fname>```
+```$ git rm -n <file_name>```
 
 <h3> Committing Files </h3>
 
@@ -205,7 +201,7 @@ Merge changes from the named branch to the current branch:
 
 Move/rename a branch:
 
-```$ git branch -m [<oldbranch>] <newbranch>```
+```$ git branch -m [<old_branch>] <new_branch>```
 
 Delete a branch:
 
@@ -300,7 +296,7 @@ tree will be lost):
 
 Remove a file from the index while keeping your changes:
 
-```$ git reset -- <fname_ext>```
+```$ git reset -- <file_name>```
 
 <h3> Revert </h3>
 
@@ -348,6 +344,20 @@ new commit to apply the undo.
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
 
+<h3> Restore </h3>
+
+Like ```reset``` and ```revert```, ```restore``` is a way to update the working tree’s files from the index or another commit. Unlike the other two
+commands, it does not modify the history.
+
+Discard changes to a specific file in the working tree:
+
+```$ git restore <file_name>```
+
+Restore a file from the index back to the working tree:
+
+```$ git restore --staged <file_name>```
+
+
  <h3> Remote Repositories </h3>
 
 _Create a remote repo:_
@@ -356,7 +366,7 @@ _Create a remote repo:_
 
 ```$ git remote rm <name>```
 
-```$ git remote rename <old-name> <new-name>```
+```$ git remote rename <old_name> <new_name>```
 
 Use ```-u``` option to set the upstream branch (upstream branches define the branch tracked on 
 the remote repository by your local remote branch):
@@ -386,7 +396,7 @@ The ```-u``` option automatically sets that upstream for you, linking your repo 
 That way, in the future, Git "knows" where you want to push to and where you want to pull from, 
 so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without arguments.
 
-```$ git push <remote-name> <branch-name>```
+```$ git push <remote_name> <branch_name>```
 
 ```$ git push```
 
