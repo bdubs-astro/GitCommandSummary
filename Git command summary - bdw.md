@@ -211,13 +211,19 @@ Switch to a branch:
 
 ```$ git checkout <branch>```
 
+```$ git switch <branch>```
+
 Create a new branch, and switch to it:
 
 ```$ git checkout -b <branch>```
 
+```$ git switch -C <branch>```
+
 Merge changes from the named branch to the current branch:
 
 ```$ git merge <branch>```
+
+```$ git merge --abort```
 
 Move/rename a branch:
 
