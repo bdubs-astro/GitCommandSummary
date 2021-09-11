@@ -151,6 +151,26 @@ Amend the most recent commit:
 
 ```$ git commit --amend --reset-author```
 
+<h3> Commit History </h3>
+
+Display the commit history, newest to oldest:
+
+```$ git log```
+
+```$ git log --oneline```
+
+Order from oldest to newest:
+
+```$ git log --reverse```
+
+Show a specific commit:
+
+```$ git show <commit>```
+
+Show a commit ___n___ steps before the last commit:
+
+```$ git show HEAD~n```
+
 <h3> Tags </h3>
 
 Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
