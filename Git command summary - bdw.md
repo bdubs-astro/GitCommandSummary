@@ -165,7 +165,7 @@ Order from oldest to newest:
 
 Show a specific commit:
 
-```$ git show <commit>```
+```$ git show <commit_id>```
 
 Show a commit ```n``` steps before the last commit:
 
