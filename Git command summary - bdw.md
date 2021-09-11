@@ -191,7 +191,7 @@ Tag the latest commit (unless ```-f``` is specified, the named tag must not yet 
 
 Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
 
-```$ git tag <tag_name> [<commit>]```
+```$ git tag <tag_name> [<commit_id>]```
 
 Delete a tag:
 
