@@ -1,3 +1,9 @@
+<h3> Clear </h3>
+
+Clear the command window:
+
+```$ git clear```
+
 <h3> Help </h3>
 
 Show help for a specific command:
