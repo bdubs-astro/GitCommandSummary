@@ -155,6 +155,10 @@ Display the commit history, newest to oldest:
 
 ```$ git log --oneline```
 
+Show the last 3 entries:
+
+```$ git log -3```
+
 Order from oldest to newest:
 
 ```$ git log --reverse```
@@ -163,11 +167,27 @@ Show a specific commit:
 
 ```$ git show <commit>```
 
-Show a commit ___n___ steps before the last commit:
+Show a commit ```n``` steps before the last commit:
 
 ```$ git show HEAD~n```
 
+Show commits that touched a specific file:
+
+```$ git log <file_name>```
+
+Show commits with a specific string in their commit messages:
+
+```$ git log --grep="<str>"```
+
+Show commits with a specific string in their patches:
+
+```$ git log -S "<str>"```
+
 <h3> Tags </h3>
+
+Tag the latest commit (unless ```-f``` is specified, the named tag must not yet exist):
+
+```$ git tag <tag_name>```
 
 Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
 
