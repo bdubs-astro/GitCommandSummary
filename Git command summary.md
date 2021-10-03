@@ -440,6 +440,11 @@ so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without 
 
 ```$ git push```
 
+Note that when creating a new Github repository with a README.md, the first attmpt to pull to a local repository results in the error 
+```fatal: refusing to merge unrelated histories```. This can be overcome by using the ```$ git pull --allow-unrelated-histories```
+command.
+
+
 <h3> Submodules </h3>
 
 A git submodule is a record within a host repo that points to a specific commit in another external repo. Submodules 
