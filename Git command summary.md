@@ -233,11 +233,17 @@ Create a new branch, and switch to it:
 
 ```$ git switch -C <branch>```
 
-Merge changes from the named branch to the current branch:
+Merge changes from the specified branch to the current branch:
 
 ```$ git merge <branch>```
 
+In the event of conflict(s), the operation can be aborted:
+
 ```$ git merge --abort```
+
+For more information about merge conflicts, see:
+
+https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts
 
 Move/rename a branch:
 
