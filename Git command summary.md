@@ -99,17 +99,25 @@ directory must match the index):
 
 <h3> Staging Files </h3>
 
-Add file(s) in the working tree to the index (staging area):
+Add file(s) in the working tree to the index (_i.e._, staging area):
 
-```$ git add <file_name.ext> [<file_name2.ext> ...]```
+```$ git add <file_name> [<file_name2> ...]```
 
 ```$ git add *.<ext>```
 
+Unstage a file (_i.e._, restore from the index back to the working tree):
+
+```$ git reset HEAD <file_name>```
+
+or
+
+```$ git restore --staged <file_name>```
+
 Allow the addition of ignored files in the working tree to the index:
 
-```$ git add --force <file_name.ext>```
+```$ git add --force <file_name>```
 
-```$ git add -f <file_name.ext>```
+```$ git add -f <file_name>```
 
 Add all tracked files in the working tree to the index:
 
@@ -333,6 +341,13 @@ Reset the index but not the working tree (_i.e._, the changed files are preserve
 but not marked for commit - this is the default action): 
 
 ```$ git reset --mixed <commit_id>```
+
+or 
+
+```$ git reset HEAD^```
+
+This performs a mixed reset, which effectively undoes that commit and leaves the modified files unstaged.
+This is useful for splitting a commit.
 
 Permanently undo changes (_i.e._, the staged snapshot and the working tree are 
 both updated, so any pending work that was hanging out in the index or working 
