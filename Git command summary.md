@@ -485,3 +485,5 @@ _Update submodule(s):_
 https://www.atlassian.com/git/tutorials
 
 https://git-scm.com/docs/gittutorial
+
+https://code.visualstudio.com/Docs/editor/versioncontrol
