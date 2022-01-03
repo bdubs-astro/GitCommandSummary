@@ -482,6 +482,8 @@ _Update submodule(s):_
 
 <h3> Resources </h3>
 
+https://git-scm.com/book/en/v2
+
 https://www.atlassian.com/git/tutorials
 
 https://git-scm.com/docs/gittutorial
