@@ -421,13 +421,20 @@ Restore a file from the index back to the working tree:
 
  <h3> Remote Repositories </h3>
 
-_Create a remote repo:_
+*Clone an existing remote repo to a new local repo:*
+
+Open **Git Bash** in the desired directory and execute the ```$ git clone <git@github.com:user_name/repo_name.git>``` command.
+This will create a local copy of the repo in a new subdirectory with the same name as that of the remote repo. Alternatively, 
+you can explicitly specify the target directory using the ```$ git clone <repo> <target_dir>``` command.
+
+Note that you can limit the Clone operation to a specific branch or tag, or even a specific number of commits. The latter can be
+useful when working with repos that have an extensive commit history.
+
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
+
+_Add an existing remote repo (empty) to an existing local repo:_
 
 ```$ git remote add origin <git@github.com:user_name/repo_name.git>```
-
-```$ git remote rm <name>```
-
-```$ git remote rename <old_name> <new_name>```
 
 Use ```-u``` option to set the upstream branch (upstream branches define the branch tracked on 
 the remote repository by your local remote branch):
@@ -442,7 +449,7 @@ _origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (push)_
 
 https://devconnected.com/how-to-set-upstream-branch-on-git/
 
-_Updating:_
+_Update:_
 
 Fetch downloads a branch from another repository, along with all of its associated commits and files. 
 Pull is the automated version of fetch. It downloads a branch from a remote repository, then immediately 
@@ -465,6 +472,12 @@ Note that when creating a new Github repository with a _README.md_ file, the fir
 ```fatal: refusing to merge unrelated histories```. This can be overcome by using the ```$ git pull --allow-unrelated-histories```
 command.
 
+*Rename/remove a remote repo:*
+
+To rename a remote, execute the ```$ git remote rename <old_name> <new_name>``` command.
+
+To remove a remote, execute the ```$ git remote rm <name>``` command.
+This removes all references to the remote repository. It does not remove the repository from the remote server.
 
 <h3> Submodules </h3>
 
