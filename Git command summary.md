@@ -436,6 +436,8 @@ _Add an existing remote repo (empty) to an existing local repo:_
 
 ```$ git remote add origin <git@github.com:user_name/repo_name.git>```
 
+```$ git branch -M main```
+
 Use ```-u``` option to set the upstream branch (upstream branches define the branch tracked on 
 the remote repository by your local remote branch):
 
