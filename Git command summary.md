@@ -451,15 +451,22 @@ _origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (push)_
 
 https://devconnected.com/how-to-set-upstream-branch-on-git/
 
-_Update:_
+_Updating:_
 
 Fetch downloads a branch from another repository, along with all of its associated commits and files. 
 Pull is the automated version of fetch. It downloads a branch from a remote repository, then immediately 
 merges it into the current branch. 
+
 It is a best practice to use ```$ git fetch``` instead of ```$ git pull``` because it doesn't try to integrate 
-anything into your local repository. This provides a chance to inspect changes before merging them with your project.
+anything into your local repository. This provides a chance to inspect changes before merging them with your project. For example,
 
 ```$ git fetch``` 
+
+followed by
+
+```$ git merge origin/main``` 
+
+gets the changes from the remote repo and merges them into the local repo.
 
 Push lets you move a local branch to another repository, which serves as a convenient way to publish contributions. 
 The ```-u``` option automatically sets that upstream for you, linking your repo to a central one. 
