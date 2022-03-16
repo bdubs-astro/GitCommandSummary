@@ -464,7 +464,7 @@ anything into your local repository. This provides a chance to inspect changes b
 
 followed by
 
-```$ git merge origin/main``` 
+```$ git merge remotes/origin/main``` 
 
 gets the changes from the remote repo and merges them into the local repo.
 
