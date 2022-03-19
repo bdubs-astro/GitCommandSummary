@@ -1,3 +1,9 @@
+<h3> Browser </h3>
+
+**gitk** is the Git repository browser. You can specify the revision range by date using the ```--since=<date>``` or ```--until=<date>``` switches, by branch using the ```--branches[=<pattern>]``` switch, or you can show everything using the ```--all``` switch. Adding a trailing ampersand directs the shell to run the command in the background, that is, it is forked and run in a separate sub-shell:
+
+```$ gitk --all &```
+
 <h3> Clear </h3>
 
 Clear the command window:
@@ -359,6 +365,7 @@ Remove a file from the index while keeping your changes:
 
 ```$ git reset -- <file_name>```
 
+</br>
 <h3> Revert </h3>
 
 Revert can be considered an "undo" type command, however, it is not a 
@@ -423,7 +430,7 @@ Restore a file from the index back to the working tree:
 
 *Clone an existing remote repo to a new local repo:*
 
-Open **Git Bash** in the desired parent directory of the new repo and execute the command:
+Open **Git Bash** in the desired parent directory of the new repo to be created and execute the command:
 
  ```$ git clone <git@github.com:user_name/repo_name.git>```
 
@@ -437,7 +444,7 @@ useful when working with repos that have an extensive commit history.
 
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
 
-**Note that if the remote repo contains submodules, its clone will not automatically include the content of the associated submodules.** Instead, two additional steps are required:
+**Note that if the remote repo contains submodules, cloning does not automatically include the content of the associated submodules.** Instead, two additional steps are required:
 
 ```$ git submodule init```
 
@@ -519,6 +526,9 @@ _Create a submodule:_
 _Update submodule(s):_
 
 ```$ git submodule foreach git pull origin main```
+
+</br> 
+</br> 
 
 <h3> Resources </h3>
 
