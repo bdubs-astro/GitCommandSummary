@@ -423,14 +423,31 @@ Restore a file from the index back to the working tree:
 
 *Clone an existing remote repo to a new local repo:*
 
-Open **Git Bash** in the desired directory and execute the ```$ git clone <git@github.com:user_name/repo_name.git>``` command.
-This will create a local copy of the repo in a new subdirectory with the same name as that of the remote repo. Alternatively, 
-you can explicitly specify the target directory using the ```$ git clone <repo> <target_dir>``` command.
+Open **Git Bash** in the desired parent directory of the new repo and execute the command:
 
-Note that you can limit the Clone operation to a specific branch or tag, or even a specific number of commits. The latter can be
+ ```$ git clone <git@github.com:user_name/repo_name.git>```
+
+This will create a local copy of the repo in a new subdirectory of the parent directory. The new subdirectory will have the same name as the remote repo. Alternatively, 
+you can explicitly specify the target directory using the command:
+
+ ```$ git clone <git@github.com:user_name/repo_name.git>  <target_dir>```
+
+Note that you can limit the **Clone** operation to a specific branch or tag, or even a specific number of commits. The latter can be
 useful when working with repos that have an extensive commit history.
 
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
+
+**Note that if the remote repo contains submodules, its clone will not automatically include the content of the associated submodules.** Instead, two additional steps are required:
+
+```$ git submodule init```
+
+```$ git submodule update```
+
+Alternatively, you can add the ```--recurse-submodules``` switch to the **Clone** command:
+
+ ```$ git clone --recurse-submodules <git@github.com:user_name/repo_name.git>```
+
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-clone-a-git-repository-with-submodules-init-and-update
 
 _Add an existing remote repo (empty) to an existing local repo:_
 
@@ -443,11 +460,12 @@ the remote repository by your local remote branch):
 
 ```$ git push -u origin main```
 
-```$ git remote -v```
-
-_origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (fetch)_
-
-_origin  git@github.com:bdubs-astro/uPythonESP32TimerTest.git (push)_
+Use the ```$ git remote -v``` or ```$ git remote --verbose``` command to show the remote url. For example:
+```
+$ git remote -v
+origin  git@github.com:bdubs-astro/GitCommandSummary.git (fetch)
+origin  git@github.com:bdubs-astro/GitCommandSummary.git (push)
+```
 
 https://devconnected.com/how-to-set-upstream-branch-on-git/
 
