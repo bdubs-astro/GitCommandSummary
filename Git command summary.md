@@ -76,6 +76,8 @@ Move a file or directory:
 
 ```$ git mv <source> <destination>```
 
+</br> </br> </br>
+
 <h3> Stash </h3>
 
 Stash allows you to record the current state of a dirty working tree and index before
@@ -320,15 +322,23 @@ to the passed branch head. Since your new commits will be replacing the old, it'
 important to not use rebase on commits that have been pushed public, or it will 
 appear that your project history disappeared.
 
+Rebase to a specific commit:
+
+```$ git rebase <commit_id>```
+
 Rebase interactively, using the last ```n``` commits (lists the oldest commits at the top):
 
 ```$ git rebase --interactive HEAD~n```
 
+or
+
 ```$ git rebase -i HEAD~n```
 
-Abort the rebase command currently in progress:
+Note that the first (*i.e.*, root) commit represents a special case, and as such must be treated differently:
 
-```$ git rebase --abort```
+```$ git rebase -i --root```
+
+It's possible that a merge failure will prevent this process from being completely automatic. You will have to resolve any such merge failure and run ```$ git rebase --continue```. Another option is to bypass the commit that caused the merge failure with ```$ git rebase --skip```. You can abort the rebase command currently in progress and reset HEAD to the original branch using the ```$ git rebase --abort``` command.
 
 <h3> Reset </h3>
 
@@ -365,7 +375,6 @@ Remove a file from the index while keeping your changes:
 
 ```$ git reset -- <file_name>```
 
-</br>
 <h3> Revert </h3>
 
 Revert can be considered an "undo" type command, however, it is not a 
@@ -439,7 +448,9 @@ you can explicitly specify the target directory using the command:
 
  ```$ git clone <git@github.com:user_name/repo_name.git>  <target_dir>```
 
-Note that you can limit the **Clone** operation to a specific branch or tag, or even a specific number of commits. The latter can be
+**Note that if the target directory name contains whitespace, it must be enclosed in quotation marks.**
+
+You can limit the **Clone** operation to a specific branch or tag, or even a specific number of commits. The latter can be
 useful when working with repos that have an extensive commit history.
 
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
@@ -513,6 +524,8 @@ To rename a remote, execute the ```$ git remote rename <old_name> <new_name>``` 
 To remove a remote, execute the ```$ git remote rm <name>``` command.
 This removes all references to the remote repository. It does not remove the repository from the remote server.
 
+</br> 
+
 <h3> Submodules </h3>
 
 A git submodule is a record within a host repo that points to a specific commit in another external repo. Submodules 
@@ -525,10 +538,12 @@ _Create a submodule:_
 
 _Update submodule(s):_
 
+```$ git submodule update```
+
+```$ git submodule update --remote```
+
 ```$ git submodule foreach git pull origin main```
 
-</br> 
-</br> 
 
 <h3> Resources </h3>
 
