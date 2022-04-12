@@ -309,11 +309,16 @@ to integrate changes from one branch into another branch; they just do it in ver
 different ways. Rebase lets you move branches around, which helps you avoid 
 unnecessary merge commits. The resulting linear history is often much easier to 
 understand and explore because rebase re-writes the project history by creating 
-brand new commits for each commit in the original branch. The golden rule of 
-rebase is to never use it on public branches. If you’re not entirely comfortable 
-with rebase, you can always perform the rebase in a temporary branch. That 
-way, if you accidentally mess up your feature’s history, you can check out the 
-original branch and try again.
+brand new commits for each commit in the original branch. 
+
+
+For example, you can move the commits in a working branch to the head of the main branch:
+
+```$ git checkout <working_branch>```
+
+```$ git rebase main```
+
+The golden rule of rebase is to never use it on public branches. If you’re not entirely comfortable with rebase, you can always perform the rebase in a temporary branch. That way, if you accidentally mess up your feature’s history, you can check out the original branch and try again.
 
 To modify older or multiple commits, you can use rebase to combine a sequence of 
 commits into a new base commit. In standard mode, rebase allows you to literally 
@@ -416,15 +421,14 @@ distinct goals, the two commands are implemented differently: resetting complete
 removes a changeset, whereas reverting maintains the original changeset and uses a 
 new commit to apply the undo.
 
-![image](https://user-images.githubusercontent.com/83251604/132892307-4423b20d-10e5-4955-afe3-b3377ea8db79.png)
+<img src = https://user-images.githubusercontent.com/83251604/132892307-4423b20d-10e5-4955-afe3-b3377ea8db79.png width = "600"/>
 
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
 
 <h3> Restore </h3>
 
-Like ```reset``` and ```revert```, ```restore``` is a way to update the working tree’s files from the index or another commit. Unlike the other two
-commands, it does not modify the history.
+Like ```reset``` and ```revert```, ```restore``` is a way to update the working tree’s files from the index or another commit. Unlike the other two commands, it does not modify the history.
 
 Discard changes to a specific file in the working tree:
 
@@ -434,6 +438,7 @@ Restore a file from the index back to the working tree:
 
 ```$ git restore --staged <file_name>```
 
+</br> 
 
  <h3> Remote Repositories </h3>
 
