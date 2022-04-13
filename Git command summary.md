@@ -207,11 +207,11 @@ Show commits with a specific string in their patches:
 
 <h3> Tags </h3>
 
-Tag the latest commit (unless ```-f``` is specified, the named tag must not yet exist):
+Tag the latest commit (note that the tag name must not yet exist, unless the ```-f``` option is specified):
 
 ```$ git tag <tag_name>```
 
-Tag a specific commit (unless ```-f``` is specified, the named tag must not yet exist):
+Tag a specific commit (note that the tag name must not yet exist, unless the ```-f``` option is specified):
 
 ```$ git tag <tag_name> [<commit_id>]```
 
@@ -223,9 +223,11 @@ List all tags:
 
 ```$ git tag -l```
 
-Push a tag to the remote repo:
+Push a tag to a remote repo (note that tags are __NOT__ automatically included when using the push command, and so must be explicitly specified):
 
 ```$ git push origin <tag_name>```
+
+Note that you can push all tags at once using the ```--tags``` option, but this is not recommended because it's common to have old or "bad" tags in a local repo. These would serve no useful purpose in the remote repo.
 
 Delete a tag from the remote repo:
 
@@ -421,7 +423,7 @@ distinct goals, the two commands are implemented differently: resetting complete
 removes a changeset, whereas reverting maintains the original changeset and uses a 
 new commit to apply the undo.
 
-<img src = https://user-images.githubusercontent.com/83251604/132892307-4423b20d-10e5-4955-afe3-b3377ea8db79.png width = "600"/>
+<img src = https://user-images.githubusercontent.com/83251604/132892307-4423b20d-10e5-4955-afe3-b3377ea8db79.png width = "500"/>
 
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
@@ -437,8 +439,6 @@ Discard changes to a specific file in the working tree:
 Restore a file from the index back to the working tree:
 
 ```$ git restore --staged <file_name>```
-
-</br> 
 
  <h3> Remote Repositories </h3>
 
