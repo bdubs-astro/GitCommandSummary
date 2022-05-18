@@ -1,6 +1,12 @@
+<span style="font-family:Cambria;font-size:11px">
+
+<h2> <span style="color:black">Git Command Summary </span></h2>
+
 <h3> Browser </h3>
 
-**gitk** is the Git repository browser. You can specify the revision range by date using the ```--since=<date>``` or ```--until=<date>``` switches, by branch using the ```--branches[=<pattern>]``` switch, or you can show everything using the ```--all``` switch. Adding a trailing ampersand directs the shell to run the command in the background, that is, it is forked and run in a separate sub-shell:
+**gitk** is the Git repository browser. You can specify the revision range by date using the ```--since=<date>``` or ```--until=<date>``` switches, by branch using the ```--branches[=<pattern>]``` switch, or you can show everything using the ```--all``` switch. 
+
+Adding a trailing ampersand directs the shell to run the command in the background, that is, it is forked and run in a separate sub-shell:
 
 ```$ gitk --all &```
 
@@ -75,8 +81,6 @@ _U_ = updated, but unmerged
 Move a file or directory:
 
 ```$ git mv <source> <destination>```
-
-</br> </br> </br>
 
 <h3> Stash </h3>
 
@@ -529,7 +533,6 @@ To rename a remote, execute the ```$ git remote rename <old_name> <new_name>``` 
 To remove a remote, execute the ```$ git remote rm <name>``` command.
 This removes all references to the remote repository. It does not remove the repository from the remote server.
 
-</br> 
 
 <h3> Submodules </h3>
 
@@ -559,3 +562,5 @@ https://www.atlassian.com/git/tutorials
 https://git-scm.com/docs/gittutorial
 
 https://code.visualstudio.com/Docs/editor/versioncontrol
+
+</span>
