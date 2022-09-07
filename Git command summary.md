@@ -544,6 +544,8 @@ _Create a submodule:_
 
 ```$ git submodule add <git@github.com:user_name/repo_name.git>  <relative path to submodule's destination folder - must not already exist>```
 
+**Note that if the target directory name contains whitespace, it must be enclosed in quotation marks.**
+
 _Update submodule(s):_
 
 ```$ git submodule update```
