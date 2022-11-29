@@ -50,6 +50,9 @@ Make VS Code the default editor:
 
 ```$ git config --global core.editor "code --wait"```
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
 <h3> Repositories </h3>
 
 Create a local repository (repo):
@@ -103,6 +106,9 @@ Remove a single stash entry from the list of stash entries:
 
 ```$ git stash drop [<stash>]```
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
 Remove a single stashed state from the stash list and apply it on top of the current 
 working tree state, _i.e._, do the inverse operation of ```$ git stash push``` (the working 
 directory must match the index):
@@ -154,6 +160,9 @@ Perform a dry run:
 ```$ git rm --dry-run <file_name>```
 
 ```$ git rm -n <file_name>```
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 <h3> Committing Files </h3>
 
@@ -208,6 +217,9 @@ Show commits with a specific string in their commit messages:
 Show commits with a specific string in their patches:
 
 ```$ git log -S "<str>"```
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 <h3> Tags </h3>
 
@@ -317,6 +329,8 @@ unnecessary merge commits. The resulting linear history is often much easier to
 understand and explore because rebase re-writes the project history by creating 
 brand new commits for each commit in the original branch. 
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 For example, you can move the commits in a working branch to the head of the main branch:
 
@@ -363,6 +377,9 @@ Undo a commit, leaving the working tree as it was (_i.e._, the staged snapshot a
 working tree are not altered in any way, only the the commit history):
 
 ```$ git reset --soft <commit_id>```
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 Reset the index but not the working tree (_i.e._, the changed files are preserved 
 but not marked for commit - this is the default action): 
@@ -417,6 +434,9 @@ is no direct path from a ref to access them. These orphaned commits can usually 
 found and restored using ```$ git reflog```. Git will permanently delete any orphaned 
 commits after it runs the internal garbage collector.
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
 Checkout and reset are generally used for making local or private changes. They modify the history of a repository, which can cause 
 conflicts when pushing to remote shared repositories. Revert is considered a safer operation for public changes, as it creates 
 a new history which can be shared remotely and doesn't overwrite the history the remote team members may be dependent on.
@@ -451,6 +471,9 @@ Restore a file from the index back to the working tree:
 Open **Git Bash** in the desired parent directory of the new repo to be created and execute the command:
 
  ```$ git clone <git@github.com:user_name/repo_name.git>```
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 This will create a local copy of the repo in a new subdirectory of the parent directory. The new subdirectory will have the same name as the remote repo. Alternatively, 
 you can explicitly specify the target directory using the command:
@@ -495,6 +518,9 @@ origin  git@github.com:bdubs-astro/GitCommandSummary.git (push)
 ```
 
 https://devconnected.com/how-to-set-upstream-branch-on-git/
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 _Updating:_
 
@@ -545,6 +571,9 @@ _Create a submodule:_
 ```$ git submodule add <git@github.com:user_name/repo_name.git>  <relative path to submodule's destination folder - must not already exist>```
 
 **Note that if the target directory name contains whitespace, it must be enclosed in quotation marks.**
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
 
 _Update submodule(s):_
 
