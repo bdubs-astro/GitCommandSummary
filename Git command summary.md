@@ -563,8 +563,8 @@ This removes all references to the remote repository. It does not remove the rep
 <h3> Submodules </h3>
 
 A git submodule is a record within a host repo that points to a specific commit in another external repo. Submodules 
-are very static and only track specific commits. Submodules do not track refs or branches, and are not automatically 
-updated when the host repository is updated.
+are very static and only track specific commits. **Submodules do not track refs or branches, and are not automatically 
+updated when the host repository is updated.**
 
 _Create a submodule:_
 
@@ -583,6 +583,45 @@ _Update submodule(s):_
 
 ```$ git submodule foreach git pull origin main```
 
+_Remove a submodule:_
+
+A git submodule appears in **four places** in the repository. In the example below, the ```TxtUtilsMatlab``` submodule was added to the ```TxtUtilsMatlab submodule``` folder in the main folder of the repository.
+
+<!-- insert screenshots -->
+
+1. A folder is added to the main folder of the repository:
+
+    <img src = "./images for README/main folder screenshot.png" width = "500"/>
+
+1. The contents of the ```.gitmodules``` file in the main folder are modified:
+
+    <img src = "./images for README/.gitmodules file contents screenshot.png" width = "300"/>
+
+1. A folder is added to the ```.git/modules``` folder:
+
+    <img src = "./images for README/.git_modules folder screenshot.png" width = "400"/>
+
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
+4. The contents of the ```.git/config``` file are modified:
+
+    <img src = "./images for README/.git_config file contents screenshot.png" width = "300"/>
+
+
+To fully remove the submodule, follow the **three steps** below.
+
+1. Use the ```$ git rm -r "TxtUtilsMatlab submodule"```
+command to delete the folder in the main folder of the repository, and to modify the contents of the ```.gitmodules``` file. **Note that the quotation marks are necessary if the path name contains whitespace.**
+1. Use the ```$ rm -rf .git/modules/"TxtUtilsMatlab submodule"``` command
+to delete the folder in the ```.git/modules``` folder.
+1. Finally, use the ```$ git config -f .git/config --remove-section submodule.$"TxtUtilsMatlab submodule"``` command to modify the contents of the ```.git/config``` file.
+
+For more information, see:
+
+https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/21211232#21211232
+
+<br>
 
 <h3> Resources </h3>
 
