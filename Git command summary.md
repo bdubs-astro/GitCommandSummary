@@ -320,6 +320,16 @@ Interactive:
 
 ```$ git clean -i```
 
+<h3> Cherry Pick </h3>
+
+Cherry picking allows arbitrary commits to be picked by reference and appended to the current working HEAD. That is, it's the act of picking a commit from one branch and applying it to another. In this regard, it can be useful for undoing changes. For example, if a commit is accidently made to the wrong branch, you can switch to the correct branch and cherry pick the commit to where it belongs.
+
+```
+$ git checkout main
+$ git cherry-pick <commit_id>
+```
+This feature can also be useful for bug hotfixes. Consider the scenario in which a developer is working on a new feature branch. During development of the new feature, a pre-existing bug is identified. The developer creates a commit for the sole purpose of patching this bug. This new patch commit can be cherry picked directly to the main branch to fix the bug before it effects more users.
+
 <h3> Rebase </h3>
 
 Rebase solves the same problem as merge. Both of these commands are designed 
@@ -328,9 +338,6 @@ different ways. Rebase lets you move branches around, which helps you avoid
 unnecessary merge commits. The resulting linear history is often much easier to 
 understand and explore because rebase re-writes the project history by creating 
 brand new commits for each commit in the original branch. 
-
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
 
 For example, you can move the commits in a working branch to the head of the main branch:
 
@@ -365,6 +372,9 @@ Note that the first (*i.e.*, root) commit represents a special case, and as such
 
 It's possible that a merge failure will prevent this process from being completely automatic. You will have to resolve any such merge failure and run ```$ git rebase --continue```. Another option is to bypass the commit that caused the merge failure with ```$ git rebase --skip```. You can abort the rebase command currently in progress and reset HEAD to the original branch using the ```$ git rebase --abort``` command.
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
 <h3> Reset </h3>
 
 Reset is a simple way to undo changes that haven’t been shared with anyone else.
@@ -377,9 +387,6 @@ Undo a commit, leaving the working tree as it was (_i.e._, the staged snapshot a
 working tree are not altered in any way, only the the commit history):
 
 ```$ git reset --soft <commit_id>```
-
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
 
 Reset the index but not the working tree (_i.e._, the changed files are preserved 
 but not marked for commit - this is the default action): 
@@ -434,9 +441,6 @@ is no direct path from a ref to access them. These orphaned commits can usually 
 found and restored using ```$ git reflog```. Git will permanently delete any orphaned 
 commits after it runs the internal garbage collector.
 
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
-
 Checkout and reset are generally used for making local or private changes. They modify the history of a repository, which can cause 
 conflicts when pushing to remote shared repositories. Revert is considered a safer operation for public changes, as it creates 
 a new history which can be shared remotely and doesn't overwrite the history the remote team members may be dependent on.
@@ -464,6 +468,9 @@ Restore a file from the index back to the working tree:
 
 ```$ git restore --staged <file_name>```
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
  <h3> Remote Repositories </h3>
 
 *Clone an existing remote repo to a new local repo:*
@@ -471,9 +478,6 @@ Restore a file from the index back to the working tree:
 Open **Git Bash** in the desired parent directory of the new repo to be created and execute the command:
 
  ```$ git clone <git@github.com:user_name/repo_name.git>```
-
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
 
 This will create a local copy of the repo in a new subdirectory of the parent directory. The new subdirectory will have the same name as the remote repo. Alternatively, 
 you can explicitly specify the target directory using the command:
@@ -518,9 +522,6 @@ origin  git@github.com:bdubs-astro/GitCommandSummary.git (push)
 ```
 
 https://devconnected.com/how-to-set-upstream-branch-on-git/
-
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
 
 _Updating:_
 
