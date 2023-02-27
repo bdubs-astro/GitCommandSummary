@@ -548,6 +548,12 @@ so you can use ```$ git push```, ```$ git pull```, or ```$ git fetch``` without 
 
 ```$ git push```
 
+You can limit the scope of a push command by specifiying a particular commit or series of commits. The following command pushes all the commits up to and including the specified commit:
+
+```$ git push <remote_name> <commit_hash>:<branch_name>```
+
+For example: ```$ git push origin f9827295:main``` 
+
 Note that when creating a new Github repository with a _README.md_ file, the first attmpt to pull to a local repository results in the error 
 ```fatal: refusing to merge unrelated histories```. This can be overcome by using the ```$ git pull --allow-unrelated-histories```
 command.
@@ -566,14 +572,14 @@ A git submodule is a record within a host repo that points to a specific commit 
 are very static and only track specific commits. **Submodules do not track refs or branches, and are not automatically 
 updated when the host repository is updated.**
 
+<!-- insert page break -->
+<div style="page-break-after: always;"></div>
+
 _Create a submodule:_
 
 ```$ git submodule add <git@github.com:user_name/repo_name.git>  <relative path to submodule's destination folder - must not already exist>```
 
 **Note that if the target directory name contains whitespace, it must be enclosed in quotation marks.**
-
-<!-- insert page break -->
-<div style="page-break-after: always;"></div>
 
 _Update submodule(s):_
 
